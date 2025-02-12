@@ -19,8 +19,6 @@ spring:
           uri: lb://ms-customer
           predicates:
             - Path=/h2-console/**
-          filters:
-            - StripPrefix=1
 
 eureka:
   client:
