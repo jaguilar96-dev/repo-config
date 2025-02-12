@@ -14,6 +14,14 @@ spring:
           predicates:
             - Path=/customers/**
 
+        # Nueva ruta para acceder a la consola de H2
+        - id: h2-console
+          uri: lb://ms-customer
+          predicates:
+            - Path=/h2-console/**
+          filters:
+            - StripPrefix=1
+
 eureka:
   client:
     serviceUrl:
