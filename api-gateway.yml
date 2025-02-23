@@ -8,11 +8,18 @@ spring:
           enabled: true
           lowerCaseServiceId: false
       routes:
+        - id: ms-customer_full
+          uri: lb://ms-customer
+          predicates:
+            - Path=/customers/full
+          filters:
+            name: AuthenticationFiltering
+            
         - id: ms-customer
           uri: lb://ms-customer
           predicates:
             - Path=/customers/**
-
+            
         - id: h2-console
           uri: lb://ms-customer
           predicates:
