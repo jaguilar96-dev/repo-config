@@ -13,7 +13,7 @@ spring:
           predicates:
             - Path=/customers/full
           filters:
-            name: AuthenticationFiltering
+            - AuthenticationFiltering
             
         - id: ms-customer
           uri: lb://ms-customer
